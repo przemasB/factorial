@@ -6,7 +6,7 @@ pipeline {
         sh 'apt update'
         sh 'apt install -y python3 pip'
         sh 'pip install pyinstaller'
-	sh 'python -m py_compile factorial.py'
+	sh 'python3 -m py_compile factorial.py'
 	stash(name: 'compiled-results', includes: '*.py*')
       }
     }
