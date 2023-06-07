@@ -18,7 +18,17 @@ pipeline {
     stage('deliver') {
       steps {
         sh 'echo "deliver"'
+	dir(path: env.BUILD_ID) { 
+	  unstash(name: 'compiled-results') 
+          sh 'pyinstaller -F factorial.py' 
+        }
       }   
     }
+     post {
+       success {
+           archiveArtifacts "${env.BUILD_ID}/dist/factorial" 
+           sh 'rm -rf build dist'
+    }
+   }
   }
 }
