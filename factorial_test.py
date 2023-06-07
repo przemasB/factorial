@@ -15,6 +15,9 @@ class TestFactorial(unittest.TestCase):
     def test_factorial_1(self):
         self.assertEqual(factorial.factorial(1), 1)
 
+    def test_factorial_2(self):
+        self.assertEqual(factorial.factorial(2), 2)
+
 
 if __name__ == '__main__':
     unittest.main()
