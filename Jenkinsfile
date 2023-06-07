@@ -18,7 +18,6 @@ pipeline {
     }
     stage('Deliver') {
       steps {
-        sh 'echo "deliver"'
 	dir(path: env.BUILD_ID) { 
 	  unstash(name: 'compiled-results') 
           sh 'pyinstaller -F factorial.py' 
