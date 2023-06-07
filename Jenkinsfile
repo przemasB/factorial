@@ -1,7 +1,7 @@
 pipeline {
   agent { docker { image 'ubuntu:22.04' } }
   stages {
-    stage('build') {
+    stage('Build') {
       steps {
         sh 'apt update'
         sh 'apt install -y python3 pip'
@@ -10,12 +10,12 @@ pipeline {
 	stash(name: 'compiled-results', includes: '*.py*')
       }
     }
-    stage('test') {
+    stage('Test') {
       steps {
         sh 'python3 factorial_test.py'
       }   
     }
-    stage('deliver') {
+    stage('Deliver') {
       steps {
         sh 'echo "deliver"'
 	dir(path: env.BUILD_ID) { 
