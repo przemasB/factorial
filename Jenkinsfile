@@ -1,5 +1,6 @@
 pipeline {
   agent { docker { image 'ubuntu:22.04' } }
+	triggers { pollSCM '* * * * *' }
   stages {
     stage('Build') {
       steps {
