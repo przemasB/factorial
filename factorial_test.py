@@ -20,6 +20,9 @@ class TestFactorial(unittest.TestCase):
         
     def test_factorial_4(self):
         self.assertEqual(factorial.factorial(4), 24)
+        
+    def test_factorial_4(self):
+        self.assertEqual(factorial.factorial(4), 24)
 
 
 if __name__ == '__main__':
